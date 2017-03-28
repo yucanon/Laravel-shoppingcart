@@ -24,6 +24,10 @@ class ProductController extends Controller{
         $products = $query->orderBy('created_at','desc')->paginate(9);
         return view('shop.index')->with('products',$products)->with('keyword',$keyword)->with('message','ユーザーリスト');
     }
+    public function getShow($id){
+        $product=Product::findOrFail($id);
+        return view('shop.show')->with('product',$product);
+    }
     public function getAddToCart(Request $request, $id){
     	$product=Product::find($id);
     	$oldCart=Session::has('cart') ? Session::get('cart') : null;

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-<div style="background-image:url({{ asset('shopping.jpg') }});" height="100%" width="100%" >
+
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -15,9 +15,12 @@
                     <div class="panel-body">
                         <ul class="list-group">
                             @foreach($order->cart->items as $item)
-                                <li class="list-group-item">
+                            <li class="list-group-item">
+                                <img src="{{ asset($item['item']['imagePath']) }}" alt="" class="col-md-offset-4 col-xs-offset-4 col-md-4 col-xs-4">
+                                    <p class="col-md-offset-4 col-xs-offset-4 col-md-4 col-xs-4">
                                     {{ $item['item']['title'] }} | {{ $item['qty'] }} 点
                                     <span class="badge">{{ $item['price'] }}円</span>
+                                    </p>
                                 </li>
                             @endforeach
                         </ul>
@@ -32,7 +35,5 @@
                 </div>
             @endforeach
         </div>
-    </div>
-    <p style="margin-top:300px; text-indent:100%; white-space:nowrap; overflow:hidden;">a</p>
     </div>
 @endsection

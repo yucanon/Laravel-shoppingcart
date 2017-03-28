@@ -39,13 +39,14 @@
         <div class="row">
             @foreach($productChunk as $product)
                 <div class="col-sm-4 col-md-3" style="margin-top:50px;">
+                <a href="{{ route('product.show', $product->id) }}">
                 <div class="thumbnail">
                     <img src="{{ $product->imagePath }}" alt="{{ $product->title }}" class="img-responsive">
                     <div class="caption">
-                        <h4>{{ $product->title }}</h4>
-                        <p class="description">
+                        <h4 style="color:black">{{ $product->title }}</h4>
+                        <p class="description" style="color:#7f7f7f">
                             {{ mb_strimwidth($product->description, 0, 100, '...') }}
-                        </p>
+                        </p></a>
                         <div class="clearfix">
                             <div class="pull-left price">{{ $product->price }}円</div>
                             <a href="{{ route('product.addToCart', ['id' => $product->id]) }}" class="btn btn-success pull-right" role="button">カートに入れる</a>

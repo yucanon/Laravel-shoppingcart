@@ -1,6 +1,5 @@
 @extends('layouts.master')
 
-<div style="background-image:url({{ asset('shopping.jpg') }});" height="100%" width="100%" >
 
 @section('title')
     Laravel Shopping Cart
@@ -29,16 +28,16 @@
 </div>
 
         <div class="row">
-            <div class="col-sm-6 col-md-6 col-sm-offset-1 col-md-offset-1" style="margin-top:100px;">
+            <div class="col-sm-6 col-md-6 col-sm-offset-1 col-md-offset-1" style="margin-top:60px;">
                 <ul class="list-group">
                     @foreach($products as $product)
                     <div class="thumbnail">
-
+                    <img src="{{ asset($product['item']['imagePath']) }}" alt="" class="img-responsive">
                             <li class="list-group-item">
                                 
                                 <strong>{{ $product['item']['title'] }}</strong>
-                                <strong>: {{ $product['price'] }}円</strong>
                                 <strong>×{{ $product['qty'] }}</strong>
+                                <strong> : {{ $product['price'] }}円</strong>
                                 
                                 <div class="btn-group" style="float:right">
                                     <button type="button" class="btn btn-success btn-xs dropdown-toogle" data-toggle="dropdown">注文の取り消し <span class="caret"></span></button>
@@ -69,8 +68,5 @@
                 <h2>カートに商品は入っていません。ご購入お願いします</h2>
             </div>
         </div>
-        <p style="margin-top:300px; text-indent:100%; white-space:nowrap; overflow:hidden;">a</p>
     @endif
-    <p style="margin-top:300px; text-indent:100%; white-space:nowrap; overflow:hidden;">a</p>
-    </div>
 @endsection
